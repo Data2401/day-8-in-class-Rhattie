@@ -1,49 +1,72 @@
 ---
 title: "Lists - In Class Exercises"
-author: "Dr. Shoemaker"
+author: "Adam Gullion"
 date: "DATA 2401"
-output:nhtml_document
-
+output: html_document
 ---
 
-# Exercises: 
+# Exercises:
 
-Make a list that contains the information on a single playing card. Suit, face, and value. 
+Make a list that contains the information on a single playing card. Suit, face, and value.
 
 ```{r}
+clubs_of_7 <- list(
+  Suit = ("club"),
+  face = (7),
+  value = (7)
+)
+clubs_of_7
+str(clubs_of_7)
 
 
 ```
 
-
-Make a second list where each element contains all the options for suit, face, and value, respectively. 
+Make a second list where each element contains all the options for suit, face, and value, respectively.
 
 ```{r}
+card_possibilities<- list(
+  suit = c("heart","club","spade","diamond"),
+  face = c(1:10,"Jack","Queen","King"),
+  value =c(1:10,10,10,10)
+)
+card_possibilities
+str(card_possibilities)
 
-
+mean(card_possibilities[["value"]])
+(card_possibilities$face)
+mean(card_possibilities$value)
 ```
-
 
 If `Newlist <- list(a=1:10, b="Good morning", c="Hi")`, write an R statement that will add 1 to each element of the first vector in Newlist.
 
 ```{r}
 Newlist <- list(a=1:10, b="Good morning", c="Hi")
-
+Newlist [[1]]<- Newlist[[1]]+1
+Newlist[[1]]
+mean(Newlist[[1]])
 
 ```
 
-If `b <- list(a=1:10, c="Hello", d="AA")`, write an R expression that will give all elements of the first vector of b, except the second, and write another that returns only elements of `a` that are greater than 7.
+If `b <- list(a=1:10, c="Hello", d="AA")`, write an R expression that will get all elements of the first vector of b, except the second, and write another that returns only elements of `a` that are greater than 7.
 
 ```{r}
 b <- list(a=1:10, c="Hello", d="AA")
+b [[1]] !=2
 
-
+b$a[-2]
+b$a[b$a>7]
 ```
 
 Let `x <- list(a=5:10, c="Hello", d="AA")`, write an R statement to add a new item z = "NewItem" to the list x.
 
 ```{r}
 x <- list(a=5:10, c="Hello", d="AA")
+x$z<-"new item"
 
+lapply(x$a,round)
+
+print(x)
 
 ```
+
+
